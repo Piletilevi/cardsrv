@@ -17,7 +17,8 @@
        and version = 'GitHub tag' is provided
        then update script gets invoked after RasoASM returns.
 """
-from os import environ, path, chdir, execlp
+# from os import environ, path, chdir, execlp
+from os import environ, path, chdir
 from sys import argv
 from subprocess import call
 from json import load as loadJSON
@@ -72,25 +73,27 @@ else:
 
 def call_update(plp_update_to_version):
     environ['plp_update_to_version'] = plp_update_to_version
-    update_dirname = path.join(path.dirname(argv[0]), 'printsrv')
-    update_filename = path.join(update_dirname, 'update.py')
+    # update_dirname = path.join(path.dirname(argv[0]), 'printsrv')
+    update_dirname = path.join(path.dirname(argv[0]))
+    update_filename = path.join(update_dirname, 'update.exe')
     chdir(update_dirname)
     print('Invoke: {0}'.format(update_filename))
-    execlp("python", "python", update_filename)
+    call(update_filename)
 
 
 if PLP_FILE_TYPE == 'ticket':
-    PRINTSRV_DIRNAME = path.join(path.dirname(argv[0]), 'printsrv')
-    PRINTSRV_FILENAME = path.join(PRINTSRV_DIRNAME, 'printsrv.py')
+    # PRINTSRV_DIRNAME = path.join(path.dirname(argv[0]), 'printsrv')
+    PRINTSRV_DIRNAME = path.join(path.dirname(argv[0]))
+    PRINTSRV_FILENAME = path.join(PRINTSRV_DIRNAME, 'print_ticket.exe')
     chdir(PRINTSRV_DIRNAME)
     print('Invoke: {0}'.format(PRINTSRV_FILENAME))
-    call(['python', PRINTSRV_FILENAME])
+    call([PRINTSRV_FILENAME])
 elif PLP_FILE_TYPE == 'fiscal':
     RASO_DIRNAME = path.join(path.dirname(argv[0]), 'RasoASM')
-    RASO_FILENAME = path.join(RASO_DIRNAME, 'fiscal.py')
+    RASO_FILENAME = path.join(RASO_DIRNAME, 'print_fiscal_{0}.exe'.format(LANGUAGE))
     chdir(RASO_DIRNAME)
     print('Invoke: {0}'.format(RASO_FILENAME))
-    call(['python', RASO_FILENAME])
+    call([RASO_FILENAME])
     if PLP_JSON_DATA['operation'] == 'endshift':
         if 'version' in PLP_JSON_DATA:
             call_update(PLP_JSON_DATA['version'])
