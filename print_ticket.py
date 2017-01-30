@@ -262,7 +262,8 @@ def start_new_document(cfg, is_first_document = False):
         sys.exit(EXIT_STATUS)
 
     logger.info("DEVICE_CONTEXT.SetMapMode")
-    DEVICE_CONTEXT.SetMapMode(int(cfg.get("DEFAULT", "map_mode")))
+    MM_TEXT = 1                         # Each logical unit is mapped to one device pixel.
+    DEVICE_CONTEXT.SetMapMode(MM_TEXT)  # Positive x is to the right; positive y is down.
     logger.info("DEVICE_CONTEXT.StartDoc")
     DEVICE_CONTEXT.StartDoc("ticket")
     logger.info("DEVICE_CONTEXT.StartPage")
