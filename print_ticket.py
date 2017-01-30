@@ -789,10 +789,6 @@ def read_param(line):
 
 #################################################################
 def read_plp_file(cfg, plp_filename, skip_file_delete):
-    global DEVICE_CONTEXT
-    global DEVICE_CONTEXT_HANDLE
-    global proxy
-
     document_open = 0
 
     after_begin = False
@@ -819,6 +815,9 @@ def read_plp_file(cfg, plp_filename, skip_file_delete):
                 document_open = 0
             else:
                 if document_open == 0:
+                    if param_key == "printer":
+                        cfg.set("DEFAULT", "printer_name", param_val)
+                        logger.info("Select {0} for printing.".format(param_val))
                     continue
                 if after_begin:
                     after_begin = False
