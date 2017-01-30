@@ -1046,12 +1046,6 @@ def override_cfg_values(cfg_1, cfg_2):
 def get_lang(cfg):
     return cfg.get("DEFAULT","my_id")[0:2].lower()
 
-def font_list_callback(font, tm, fonttype, fonts):
-    # if font.lfFaceName == fonts[0]:
-    #     fonts.append(font)
-    logger.info(" %s" % font.lfFaceName)
-    return True
-
 
 ################################################################################
 # MAIN STARTS HERE
@@ -1105,7 +1099,7 @@ cfg_setup = read_ini_config(ini_filename)
 
 # setup.ini overrides persistent.ini values if there are any
 cfg = override_cfg_values(cfg_persistent, cfg_setup)
-language = get_lang(cfg)
+language = 'LT'
 os.environ['plp_language'] = language
 os.environ['plp_filename'] = os.path.abspath(plp_filename)
 os.environ['plp_devmode'] = "TRUE" if os.path.splitext(sys.argv[0])[1] == '.py' else 'FALSE'
