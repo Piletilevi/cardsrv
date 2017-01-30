@@ -264,7 +264,7 @@ def start_new_document(cfg, is_first_document = False):
     logger.info("DEVICE_CONTEXT.SetMapMode")
     DEVICE_CONTEXT.SetMapMode(int(cfg.get("DEFAULT", "map_mode")))
     logger.info("DEVICE_CONTEXT.StartDoc")
-    DEVICE_CONTEXT.StartDoc(cfg.get("DEFAULT", "print_document_name"))
+    DEVICE_CONTEXT.StartDoc("ticket")
     logger.info("DEVICE_CONTEXT.StartPage")
     DEVICE_CONTEXT.StartPage()
     logger.info("win32ui.CreateFont");
