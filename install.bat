@@ -16,12 +16,6 @@ if "%YesNo%"=="6" (
 copy /y persistent.ini ..
 )
 
-Call :YesNoBox "Copy setup_lt.ini?"
-if "%YesNo%"=="6" (
-copy /y setup_lt.ini ..
-)
-
-REM Call :YesNoBox "Scooby happy?"
 
 del install.bat
 exit /b

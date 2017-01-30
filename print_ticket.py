@@ -1091,7 +1091,7 @@ if not os.path.isfile(persistent_ini_path):
     sys.exit(EXIT_STATUS)
 cfg_persistent = read_ini_config(persistent_ini_path)
 
-ini_filename = os.path.join(get_main_dir(), "..", "setup_%s.ini" % get_lang(cfg_persistent))
+ini_filename = os.path.join(get_main_dir(), "setup_%s.ini" % get_lang(cfg_persistent))
 logger.info("setting ini filename to:\n- %s" % ini_filename)
 
 # default layout
