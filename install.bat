@@ -16,8 +16,8 @@ if "%YesNo%"=="6" (
 copy /y persistent.ini ..
 )
 
-attrib -h -a -r -s . /S /D
-icacls . /grant Everyone:M
+REM attrib -h -a -r -s . /S /D
+REM icacls . /grant Everyone:M
 
 del install.bat
 exit /b
