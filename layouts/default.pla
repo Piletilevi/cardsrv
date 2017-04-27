@@ -1,4 +1,27 @@
-[triipid]
+[DEFAULT]
+print_document_name=out.txt
+# 1 - portrait
+# 2 - landscape
+printer_orientation = 2
+#Here you add the name of printer. Exactly as it is in Windows.
+#printer_name=EasyCoder E4
+#printer_name=EasyCoder C4
+#printer_name=EasyCoder PC4
+printer_name=Intermec PF8d
+
+# Layout: 2014 Default / Regular
+
+# http://msdn.microsoft.com/en-us/library/dd162980%28VS.85%29.aspx
+#MM_HIENGLISH = 5
+#MM_HIMETRIC 3
+#MM_LOENGLISH 4
+#MM_LOMETRIC 2 
+#MM_TEXT 1
+#MM_TWIPS 6
+map_mode = 1
+
+
+[ticketBarCode]
 type=bar_code128
 font_name=Code 128
 font_height=60
@@ -8,21 +31,21 @@ x=1012
 y=85
 
 
-[piltleft]
+[imageLeft]
 type=image_xml
 local_image_folder=c:/plevi/img/
 remote_image_url_folder=http://images.piletilevi.ee/tickets/
 x=100
 y=132
 
-[pilttop]
+[imageTop]
 type=image_xml
 local_image_folder=c:/plevi/img/
 remote_image_url_folder=http://images.piletilevi.ee/tickets/
 x=325
 y=40
 
-[piltbot]
+[imageBottom]
 type=image_xml
 local_image_folder=c:/plevi/img/
 remote_image_url_folder=http://images.piletilevi.ee/tickets/
@@ -30,7 +53,7 @@ x=325
 y=501
 
 
-[yritus1]
+[eventName1]
 type=text
 font_name=Arial
 font_height=34
@@ -39,7 +62,7 @@ font_weight=1000
 x=325
 y=137
 
-[yritus2]
+[eventName2]
 type=text
 font_name=Arial
 font_height=34
@@ -48,7 +71,7 @@ font_weight=1000
 x=325
 y=174
 
-[toimkoht]
+[eventLocation]
 type=text
 font_name=Arial
 font_height=30
@@ -57,7 +80,7 @@ font_weight=1000
 x=325
 y=211
 
-[aeg]
+[eventDateTime]
 type=text
 font_name=Arial
 font_height=30
@@ -67,7 +90,7 @@ x=325
 y=243
 
 
-[sektor1]
+[section1]
 type=text
 font_name=Arial
 font_height=30
@@ -76,7 +99,7 @@ font_weight=1000
 x=110
 y=382
 
-[rida1]
+[row1]
 type=text
 font_name=Arial
 font_height=30
@@ -85,7 +108,7 @@ font_weight=1000
 x=110
 y=410
 
-[koht1]
+[seat1]
 type=text
 font_name=Arial
 font_height=30
@@ -96,7 +119,7 @@ y=438
 
 
 
-[piletiliik1]
+[priceGroup1]
 type=text
 font_name=Arial
 font_height=30
@@ -106,7 +129,7 @@ x=325
 y=410
 
 
-[hind]
+[ticketPrice]
 type=text
 font_name=Arial
 font_height=30
@@ -115,7 +138,7 @@ font_weight=1000
 x=325
 y=438
 
-[hinde]
+[serviceFee]
 type=text
 font_name=Arial
 font_height=22
@@ -124,34 +147,7 @@ font_weight=500
 x=485
 y=444
 
-[km]
-type=text
-font_name=Arial
-font_height=22
-font_width=8
-font_weight=500
-x=610
-y=444
-
-[teenustext]
-type=text
-font_name=Arial
-font_height=25
-font_width=10
-font_weight=700
-x=180
-y=471
-
-[teenus]
-type=text
-font_name=Arial
-font_height=30
-font_width=12
-font_weight=1000
-x=325
-y=466
-
-[teenuse]
+[extraFee]
 type=text
 font_name=Arial
 font_height=22
@@ -160,17 +156,7 @@ font_weight=500
 x=485
 y=472
 
-[teenuskm]
-type=text
-font_name=Arial
-font_height=22
-font_width=8
-font_weight=500
-x=610
-y=472
-
-
-[totaltext]
+[totalText]
 type=text
 font_name=Arial
 font_height=30
@@ -179,7 +165,7 @@ font_weight=1000
 x=825
 y=438
 
-[total]
+[totalPrice]
 type=text
 font_name=Arial
 font_height=30
@@ -188,8 +174,7 @@ font_weight=1000
 x=825
 y=466
 
-
-[Static_text1]
+[staticText]
 type=static_text
 value=ID:
 font_name=Arial
@@ -199,7 +184,7 @@ font_weight=500
 x=110
 y=100
 
-[piletid1]
+[ticketId]
 type=text
 font_name=Arial
 font_height=25
@@ -208,17 +193,17 @@ font_weight=500
 x=145
 y=100
 
-[Static_text2]
+[staticText2]
 type=static_text
-value=ID:
-font_name=Arial
-font_height=25
-font_width=10
-font_weight=500
-x=1035
-y=100
+value1=ID:
+font_name1=Arial
+font_height1=25
+font_width1=10
+font_weight1=500
+x1=1035
+y1=100
 
-[piletid1]
+[ticketId]
 type=text
 font_name1=Arial
 font_height1=25
@@ -228,7 +213,7 @@ x1=1070
 y1=100
 
 
-[lisatext1]
+[infoText1]
 type=text
 font_name=Arial
 font_height=25
@@ -237,7 +222,7 @@ font_weight=500
 x=325
 y=105
 
-[lisatext2]
+[infoText2]
 type=text
 font_name=Arial
 font_height=25
@@ -246,7 +231,7 @@ font_weight=500
 x=325
 y=280
 
-[lisatext3]
+[infoText3]
 type=text
 font_name=Arial
 font_height=25
@@ -255,7 +240,7 @@ font_weight=500
 x=325
 y=305
 
-[lisatext4]
+[infoText4]
 type=text
 font_name=Arial
 font_height=25
@@ -264,7 +249,7 @@ font_weight=500
 x=325
 y=330
 
-[lisatext5]
+[infoText5]
 type=text
 font_name=Arial
 font_height=25
@@ -273,17 +258,7 @@ font_weight=500
 x=325
 y=355
 
-
-[lisatunnus]
-type=text
-font_name=Arial
-font_height=25
-font_width=10
-font_weight=500
-x=1035
-y=211
-
-[sektor2]
+[section2]
 type=text
 font_name=Arial
 font_height=25
@@ -292,7 +267,7 @@ font_weight=500
 x=1035
 y=236
 
-[rida2]
+[row2]
 type=text
 font_name=Arial
 font_height=25
@@ -301,7 +276,7 @@ font_weight=500
 x=1035
 y=261
 
-[koht2]
+[seat2]
 type=text
 font_name=Arial
 font_height=25
@@ -310,7 +285,7 @@ font_weight=500
 x=1035
 y=286
 
-[piletiliik2]
+[priceGroup2]
 type=text
 font_name=Arial
 font_height=25
@@ -319,7 +294,7 @@ font_weight=500
 x=1035
 y=311
 
-[hind]
+[price]
 type=text
 font_name1=Arial
 font_height1=25
@@ -329,40 +304,41 @@ x1=1035
 y1=336
 
 
-[Static_text3]
+[staticText3]
 type=static_text
-value=ID:
-font_name=Arial
-font_height=25
-font_width=10
-font_weight=500
-x=800
-y=386
+value2=ID:
+font_name2=Arial
+font_height2=25
+font_width2=10
+font_weight2=500
+x2=800
+y2=386
 
-[piletid2]
+[ticketId]
 type=text
-font_name=Arial
-font_height=25
-font_width=10
-font_weight=500
-x=835
-y=386
+font_name2=Arial
+font_height2=25
+font_width2=10
+font_weight2=500
+x2=835
+y2=386
 
-[Static_text4]
+[staticText4]
 type=static_text
-value=ID:
-font_name=Arial
-font_height=25
-font_width=10
-font_weight=500
-x=1035
-y=386
+value3=ID:
+font_name3=Arial
+font_height3=25
+font_width3=10
+font_weight3=500
+x3=1035
+y3=386
 
-[piletid2]
+[ticketId]
 type=text
-font_name1=Arial
-font_height1=25
-font_width1=10
-font_weight1=500
-x1=1070
-y1=386
+font_name3=Arial
+font_height3=25
+font_width3=10
+font_weight3=500
+x3=1070
+y3=386
+
