@@ -827,7 +827,7 @@ def read_plp_file(cfg, plp_filename, skip_file_delete):
                             layout_cfg = cfg
                         else:
                             layout_cfg = get_layout_cfg(param_val)
-                    continue
+                        continue
                 for postfix in ["", "_1", "_2", "_3"]: # this makes it possible to print out several types for one value
                     section_name = param_key + postfix
                     if layout_cfg.has_section(section_name):
